@@ -34,4 +34,5 @@ RESOURCES += \
     Resources.qrc
 
 DISTFILES += \
-    Recursos/paleta-de-color.png
+    Recursos/paleta-de-color.png \
+    diagrama.qmodel

@@ -72,21 +72,23 @@ void Principal::mousePressEvent(QMouseEvent *event)
             update();
         }
     }else if(m_opcion == 3){
-            if (m_compbdr){
-                // CONTROLA LA POSICION INICIAL EN DONDE SE HIZO CLICK
-                mInicial = event->pos();
-                // MUESTRA MENSAJE DE QUE SE CREO EL PRIMER PUNTO
-                ui->statusbar->showMessage("Primer punto, elija el punto final del rectangulo",1500);
-            }else {
-                // CONTROLA LA POSICION FINAL EN DONDE SE HIZO CLICK
-                mFinal = event->pos();
-                // SE CREA EL RECTANGULO
-                mPainter->drawRect(mInicial.x(), mInicial.y(), mFinal.x()-mInicial.x(), mFinal.y()-mInicial.y());
-                // MUESTRA MENSAJE DE QUE SE CREO EL OBJETO
-                ui->statusbar->showMessage("¡RECTANGULO CREADO!",1500);
-                update();
-            }
+        // CONDICIONAL PARA COMPROBAR SI ES PRIMER O SEGUNDO PUNTO DIBUJADO
+        if (m_compbdr){
+            // CONTROLA LA POSICION INICIAL EN DONDE SE HIZO CLICK
+            mInicial = event->pos();
+            // MUESTRA MENSAJE DE QUE SE CREO EL PRIMER PUNTO
+            ui->statusbar->showMessage("Primer punto, elija el punto final del rectangulo",1500);
+        }else {
+            // CONTROLA LA POSICION FINAL EN DONDE SE HIZO CLICK
+            mFinal = event->pos();
+            // SE CREA EL RECTANGULO
+            mPainter->drawRect(mInicial.x(), mInicial.y(), mFinal.x()-mInicial.x(), mFinal.y()-mInicial.y());
+            // MUESTRA MENSAJE DE QUE SE CREO EL OBJETO
+            ui->statusbar->showMessage("¡RECTANGULO CREADO!",1500);
+            update();
+        }
     }else if (m_opcion == 4){
+        // CONDICIONAL PARA COMPROBAR SI ES PRIMER O SEGUNDO PUNTO DIBUJADO
         if(m_compbdr){
             // CONTROLA LA POSICION INICIAL EN DONDE SE HIZO CLICK
             mInicial = event->pos();

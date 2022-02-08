@@ -64,4 +64,4 @@ private:
     int m_opcion;           // VARIABLE QUE DETERMINA EL BOTON ACTIVADO
     bool m_compbdr= true;   // VARIABLE PARA COMPROBAR FUNCIONES DE LAS FIGURAS
 };
-#endif // PRINCIPAL_H
+#endif // PRINCIPAL_H 
