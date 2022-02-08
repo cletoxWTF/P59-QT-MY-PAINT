@@ -1,5 +1,14 @@
 <RCC>
     <qresource prefix="/">
         <file>Recursos/paleta-de-color.png</file>
+        <file>Recursos/acento-circunflejo.png</file>
+        <file>Recursos/agregar-archivo.png</file>
+        <file>Recursos/boton.png</file>
+        <file>Recursos/cuadrado.png</file>
+        <file>Recursos/disquete.png</file>
+        <file>Recursos/expandir-ancho.png</file>
+        <file>Recursos/lavado-en-seco.png</file>
+        <file>Recursos/linea.png</file>
+        <file>Recursos/rueda-de-color.png</file>
     </qresource>
 </RCC>

@@ -53,7 +53,7 @@ void Principal::mousePressEvent(QMouseEvent *event)
     if(m_opcion == 1){
         // CONTROLA LA POSICION INICIAL EN DONDE SE HIZO CLICK
         mInicial = event->pos();
-        // VARAIBLE QUE DA ACCESO AL DIBUJO LIBRE
+        // VARIABLE QUE DA ACCESO AL DIBUJO LIBRE
         mPuedeDibujar = true;
     }else if(m_opcion == 2){
         // CONDICIONAL PARA COMPROBAR SI ES PRIMER O SEGUNDO PUNTO DIBUJADO

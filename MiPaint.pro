@@ -34,5 +34,14 @@ RESOURCES += \
     Resources.qrc
 
 DISTFILES += \
+    Recursos/acento-circunflejo.png \
+    Recursos/agregar-archivo.png \
+    Recursos/boton.png \
+    Recursos/cuadrado.png \
+    Recursos/disquete.png \
+    Recursos/expandir-ancho.png \
+    Recursos/lavado-en-seco.png \
+    Recursos/linea.png \
     Recursos/paleta-de-color.png \
+    Recursos/rueda-de-color.png \
     diagrama.qmodel

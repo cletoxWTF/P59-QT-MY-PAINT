@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="cursor">
-   <cursorShape>CrossCursor</cursorShape>
+   <cursorShape>PointingHandCursor</cursorShape>
   </property>
   <property name="windowTitle">
    <string>My Paint</string>
@@ -61,6 +61,10 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionNuevo">
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/Recursos/agregar-archivo.png</normaloff>:/Recursos/agregar-archivo.png</iconset>
+   </property>
    <property name="text">
     <string>Nuevo</string>
    </property>
@@ -69,6 +73,10 @@
    </property>
   </action>
   <action name="actionGuardar">
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/Recursos/disquete.png</normaloff>:/Recursos/disquete.png</iconset>
+   </property>
    <property name="text">
     <string>Guardar</string>
    </property>
@@ -77,6 +85,10 @@
    </property>
   </action>
   <action name="actionSalir">
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/Recursos/boton.png</normaloff>:/Recursos/boton.png</iconset>
+   </property>
    <property name="text">
     <string>Salir</string>
    </property>
@@ -85,6 +97,10 @@
    </property>
   </action>
   <action name="actionColor">
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/Recursos/rueda-de-color.png</normaloff>:/Recursos/rueda-de-color.png</iconset>
+   </property>
    <property name="text">
     <string>Color</string>
    </property>
@@ -93,6 +109,10 @@
    </property>
   </action>
   <action name="actionAncho">
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/Recursos/expandir-ancho.png</normaloff>:/Recursos/expandir-ancho.png</iconset>
+   </property>
    <property name="text">
     <string>Ancho</string>
    </property>
@@ -101,6 +121,10 @@
    </property>
   </action>
   <action name="actionLineas">
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/Recursos/linea.png</normaloff>:/Recursos/linea.png</iconset>
+   </property>
    <property name="text">
     <string>Lineas</string>
    </property>
@@ -109,16 +133,28 @@
    <property name="checkable">
     <bool>true</bool>
    </property>
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/Recursos/acento-circunflejo.png</normaloff>:/Recursos/acento-circunflejo.png</iconset>
+   </property>
    <property name="text">
     <string>Libre</string>
    </property>
   </action>
   <action name="actionRect_nculos">
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/Recursos/cuadrado.png</normaloff>:/Recursos/cuadrado.png</iconset>
+   </property>
    <property name="text">
     <string>Rectánculos</string>
    </property>
   </action>
   <action name="actionCircunferencias">
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/Recursos/lavado-en-seco.png</normaloff>:/Recursos/lavado-en-seco.png</iconset>
+   </property>
    <property name="text">
     <string>Circunferencias</string>
    </property>
