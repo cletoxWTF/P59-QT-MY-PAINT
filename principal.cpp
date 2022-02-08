@@ -1,15 +1,7 @@
 #include "principal.h"
 #include "ui_principal.h"
 
-#include <QImage>
-#include <QPainter>
-#include <QMouseEvent>
-#include <QPaintEvent>
-#include <QDebug>
-#include <QInputDialog>
-#include <QColorDialog>
-#include <QFileDialog>
-#include <QMessageBox>
+
 
 #define DEFAULT_ANCHO 3
 
@@ -51,9 +43,67 @@ void Principal::paintEvent(QPaintEvent *event)
 
 void Principal::mousePressEvent(QMouseEvent *event)
 {
-    mPuedeDibujar = true;
-    mInicial = event->pos();
-    event->accept();
+    // CREACION DE PINCEL
+    QPen pincel;
+    pincel.setColor(mColor);
+    pincel.setWidth(mAncho);
+    // ASIGNACION DE PINCEL AL PINTOR
+    mPainter->setPen(pincel);
+    // CONDICIONAL PARA SABER CUAL BOTON HA SIDO APLASTADO
+    if(m_opcion == 1){
+        // CONTROLA LA POSICION INICIAL EN DONDE SE HIZO CLICK
+        mInicial = event->pos();
+        // VARAIBLE QUE DA ACCESO AL DIBUJO LIBRE
+        mPuedeDibujar = true;
+    }else if(m_opcion == 2){
+        // CONDICIONAL PARA COMPROBAR SI ES PRIMER O SEGUNDO PUNTO DIBUJADO
+        if(m_compbdr){
+            // CONTROLA LA POSICION INICIAL EN DONDE SE HIZO CLICK
+            mInicial = event->pos();
+            // MUESTRA MENSAJE DE QUE SE CREO EL PRIMER PUNTO
+            ui->statusbar->showMessage("Primer punto, elija el segundo",1500);
+        }else{
+            // CONTROLA LA POSICION FINAL EN DONDE SE HIZO CLICK
+            mFinal = event->pos();
+            // SE CREA LA LINEA
+            mPainter->drawLine(mInicial, mFinal);
+            // MUESTRA MENSAJE DE QUE SE CREO EL OBJETO
+            ui->statusbar->showMessage("¡LINEA CREADA!",1000);
+            update();
+        }
+    }else if(m_opcion == 3){
+            if (m_compbdr){
+                // CONTROLA LA POSICION INICIAL EN DONDE SE HIZO CLICK
+                mInicial = event->pos();
+                // MUESTRA MENSAJE DE QUE SE CREO EL PRIMER PUNTO
+                ui->statusbar->showMessage("Primer punto, elija el punto final del rectangulo",1500);
+            }else {
+                // CONTROLA LA POSICION FINAL EN DONDE SE HIZO CLICK
+                mFinal = event->pos();
+                // SE CREA EL RECTANGULO
+                mPainter->drawRect(mInicial.x(), mInicial.y(), mFinal.x()-mInicial.x(), mFinal.y()-mInicial.y());
+                // MUESTRA MENSAJE DE QUE SE CREO EL OBJETO
+                ui->statusbar->showMessage("¡RECTANGULO CREADO!",1500);
+                update();
+            }
+    }else if (m_opcion == 4){
+        if(m_compbdr){
+            // CONTROLA LA POSICION INICIAL EN DONDE SE HIZO CLICK
+            mInicial = event->pos();
+            // MUESTRA MENSAJE DE QUE SE CREO EL PRIMER PUNTO
+            ui->statusbar->showMessage("Primer punto, elija el radio",1500);
+        }else{
+            // CONTROLA LA POSICION FINAL EN DONDE SE HIZO CLICK
+            mFinal = event->pos();
+            // SE CREA LA CIRCUNFERENCIA
+            mPainter->drawEllipse(mInicial,mFinal.rx()-mInicial.rx(),mFinal.ry()-mInicial.ry());
+            // MUESTRA MENSAJE DE QUE SE CREO EL OBJETO
+            ui->statusbar->showMessage("¡CIRCUNFERENCIA CREADA!",1500);
+            update();
+        }
+    }
+    // SE RESTABLECE LA VARIABLE PARA VOLVERLA A USAR
+    m_compbdr= !m_compbdr;
 }
 
 void Principal::mouseMoveEvent(QMouseEvent *event)
@@ -134,3 +184,32 @@ void Principal::on_actionGuardar_triggered()
                                  "No se pudo almacenar la imagen.");
     }
 }
+
+
+
+void Principal::on_actionLibre_triggered()
+{
+    m_opcion = 1;
+}
+
+
+void Principal::on_actionLineas_triggered()
+{
+    m_opcion = 2;
+    m_compbdr = true;
+}
+
+
+void Principal::on_actionRect_nculos_triggered()
+{
+    m_opcion = 3;
+    m_compbdr = true;
+}
+
+
+void Principal::on_actionCircunferencias_triggered()
+{
+    m_opcion = 4;
+    m_compbdr = true;
+}
+
